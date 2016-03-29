@@ -48,6 +48,8 @@ function myMove(e){
 }
 
 function myDown(e){
+ e.preventDefault();
+ if(e.targetTouches) e = e.targetTouches;
  if (e.pageX < x + 15 + canvas.offsetLeft 
   && e.pageX > x - 15 + canvas.offsetLeft 
   && e.pageY < y + 15 + canvas.offsetTop 
@@ -82,3 +84,5 @@ function updateGame(){
 init();
 canvas.onmousedown = myDown;
 canvas.onmouseup = myUp;
+canvas.ontouchstart = myDown;
+canvas.ontouchend = myUp;
